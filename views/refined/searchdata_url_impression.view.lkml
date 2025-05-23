@@ -179,6 +179,15 @@ view: +searchdata_url_impression {
     hidden: no
   }
 
+  measure: ctr {
+    label: "CTR"
+    type: number
+    sql: SAFE_DIVIDE(${total_clicks},${total_impressions}) ;;
+    hidden: no
+    value_format_name: percent_1
+    #1cc240
+  }
+
   measure: top_position {
     label: "Top Position"
     type: sum
@@ -189,7 +198,7 @@ view: +searchdata_url_impression {
     label: "Average URL Position"
     type: number
     sql: SAVE_DIVIDE(${top_position}, ${total_impressions}) + 1 ;;
-    value_format_name: decimal_1
+    value_format_name: decimal_3
     hidden: no
   }
 }
