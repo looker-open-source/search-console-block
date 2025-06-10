@@ -15,75 +15,57 @@ view: +searchdata_site_impression {
 
   dimension: clicks {
     group_label: "Metrics"
-    type: number
-    sql: ${TABLE}.clicks ;;
     hidden: no
   }
 
   dimension: country {
     group_label: "Search Description"
-    type: string
-    map_layer_name: countries
-    sql: ${TABLE}.country ;;
     hidden: no
   }
-  # Dates and timestamps can be represented in Looker using a dimension group of type: time.
-  # Looker converts dates and timestamps to the specified timeframes within the dimension group.
+
+  dimension: country_upper {
+    type: string
+    map_layer_name: countries
+    sql: UPPER(${TABLE}.country) ;;
+    group_label: "Search Description"
+    hidden: no
+  }
 
   dimension_group: data {
-    type: time
-    timeframes: [raw, date, week, month, quarter, year]
-    convert_tz: no
-    datatype: date
-    sql: ${TABLE}.data_date ;;
     hidden: no
   }
 
   dimension: device {
     group_label: "Search Description"
-    type: string
-    sql: ${TABLE}.device ;;
     hidden: no
   }
 
   dimension: impressions {
     group_label: "Metrics"
-    type: number
-    sql: ${TABLE}.impressions ;;
     hidden: no
   }
 
   dimension: is_anonymized_query {
     group_label: "Query"
-    type: yesno
-    sql: ${TABLE}.is_anonymized_query ;;
     hidden: no
   }
 
   dimension: query {
     group_label: "Query"
-    type: string
-    sql: ${TABLE}.query ;;
     hidden: no
   }
 
   dimension: search_type {
     group_label: "Search Description"
-    type: string
-    sql: ${TABLE}.search_type ;;
     hidden: no
   }
 
   dimension: site_url {
-    type: string
-    sql: ${TABLE}.site_url ;;
     hidden: no
   }
 
   dimension: sum_top_position {
     group_label: "Metrics"
-    type: number
-    sql: ${TABLE}.sum_top_position ;;
     hidden: no
   }
 
