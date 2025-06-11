@@ -13,6 +13,50 @@ view: +searchdata_site_impression {
     primary_key: yes
   }
 
+  ## PARAMETERS ##
+
+  parameter: dynamic_metric {
+    hidden: no
+    type: unquoted
+    default_value: "clicks"
+    allowed_value: {
+      value: "clicks"
+      label: "Clicks"
+    }
+    allowed_value: {
+      value: "impressions"
+      label: "Impressions"
+    }
+    allowed_value: {
+      value: "ctr"
+      label: "CTR"
+    }
+    allowed_value: {
+      value: "avg_site_position"
+      label: "Avg Site Position"
+    }
+  }
+
+  measure: dynamic_console_metric{
+    # label_from_parameter: dynamic_metric
+    type: number
+    label: "{% if dynamic_metric._parameter_value == 'clicks' %} Clicks
+        {% elsif dynamic_metric._parameter_value == 'impressions' %} Impressions
+        {% elsif dynamic_metric._parameter_value == 'ctr' %} CTR
+        {% elsif dynamic_metric._parameter_value == 'avg_site_position' %} Avg Site Position
+        {% else %} Clicks
+      {% endif %}"
+
+    sql:
+      {% if dynamic_metric._parameter_value == "clicks" %} ${total_clicks}
+        {% elsif dynamic_metric._parameter_value == "impressions" %} ${total_impressions}
+        {% elsif dynamic_metric._parameter_value == "ctr" %} ${ctr}
+        {% elsif dynamic_metric._parameter_value == "avg_site_position" %} ${avg_site_position}
+      {% else %} ${total_clicks}
+      {% endif %};;
+    hidden: no
+  }
+
   dimension: clicks {
     group_label: "Metrics"
     hidden: no
@@ -97,6 +141,7 @@ view: +searchdata_site_impression {
   }
 
   measure: total_sum_top_position {
+    hidden: no
     type: sum
     sql: ${sum_top_position} ;;
   }
@@ -108,5 +153,35 @@ view: +searchdata_site_impression {
     value_format_name: decimal_3
     hidden: no
     #db1e3b
+  }
+
+  dimension: nav_bar_site_data {
+    hidden:no
+    type: string
+    sql: " " ;;
+    group_label: "Navigation Bar Fields"
+    html:
+        <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
+          <nav style="font-size: 18px;  text-align: center;">
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/110?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">☰ Site Data</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/157?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">Dynamic<a>
+      </nav>
+      </div>
+      ;;
+  }
+
+  dimension: nav_bar_dynamic {
+    hidden:no
+    type: string
+    sql: " " ;;
+    group_label: "Navigation Bar Fields"
+    html:
+        <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
+          <nav style="font-size: 18px;  text-align: center;">
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/110?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">☰ Site Data</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/157?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">Dynamic<a>
+      </nav>
+      </div>
+      ;;
   }
 }
