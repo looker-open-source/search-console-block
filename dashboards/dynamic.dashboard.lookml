@@ -13,7 +13,6 @@
     explore: Impressions
     type: looker_geo_choropleth
     fields: [Impressions.country_upper, Impressions.dynamic_console_metric]
-    filters: {}
     sorts: [Impressions.dynamic_console_metric desc 0]
     limit: 500
     column_limit: 50
@@ -37,63 +36,12 @@
     col: 0
     width: 24
     height: 11
-  - title: Word Cloud Queries
-    name: Word Cloud Queries
-    model: search_console_model
-    explore: Impressions
-    type: looker_wordcloud
-    fields: [Impressions.dynamic_console_metric, Impressions.query]
-    filters: {}
-    sorts: [Impressions.dynamic_console_metric desc 0]
-    limit: 500
-    column_limit: 50
-    query_timezone: UTC
-    color_application:
-      collection_id: 5591d8d1-6b49-4f8e-bafa-b874d82f8eb7
-      palette_id: 18d0c733-1d87-42a9-934f-4ba8ef81d736
-      options:
-        steps: 5
-    rotation: true
-    map: world
-    map_projection: equirectangular
-    show_view_names: true
-    quantize_colors: false
-    show_antarctica: false
-    colors: ["#3a71fc"]
-    hidden_fields: []
-    hidden_points_if_no: []
-    series_labels: {}
-    defaults_version: 1
-    hidden_pivots: {}
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: 12
-    rows_font_size: 12
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    listen:
-      Site URL: Impressions.site_url
-      Data Date: Impressions.data_date
-      Dynamic Metric: Impressions.dynamic_metric
-    row: 14
-    col: 0
-    width: 15
-    height: 13
   - title: Devices
     name: Devices
     model: search_console_model
     explore: Impressions
     type: looker_pie
     fields: [Impressions.dynamic_console_metric, Impressions.device]
-    filters: {}
     sorts: [Impressions.dynamic_console_metric desc 0]
     limit: 500
     column_limit: 50
@@ -165,16 +113,15 @@
       Data Date: Impressions.data_date
       Dynamic Metric: Impressions.dynamic_metric
     row: 14
-    col: 15
-    width: 9
-    height: 6
+    col: 0
+    width: 12
+    height: 7
   - title: Search Type
     name: Search Type
     model: search_console_model
     explore: Impressions
     type: looker_pie
     fields: [Impressions.dynamic_console_metric, Impressions.search_type]
-    filters: {}
     sorts: [Impressions.dynamic_console_metric desc 0]
     limit: 500
     column_limit: 50
@@ -248,9 +195,9 @@
       Site URL: Impressions.site_url
       Data Date: Impressions.data_date
       Dynamic Metric: Impressions.dynamic_metric
-    row: 20
-    col: 15
-    width: 9
+    row: 14
+    col: 12
+    width: 12
     height: 7
   - title: Over Time
     name: Over Time
@@ -260,7 +207,6 @@
     fields: [Impressions.dynamic_console_metric, Impressions.search_type, Impressions.data_date]
     pivots: [Impressions.search_type]
     fill_fields: [Impressions.data_date]
-    filters: {}
     sorts: [Impressions.search_type, Impressions.dynamic_console_metric desc 0]
     limit: 500
     column_limit: 50
@@ -410,11 +356,62 @@
     col: 0
     width: 24
     height: 3
+  - title: Word Cloud
+    name: Word Cloud
+    model: search_console_model
+    explore: Impressions
+    type: looker_wordcloud
+    fields: [Impressions.dynamic_console_metric, Impressions.query]
+    filters:
+      Impressions.query: "-NULL"
+    sorts: [Impressions.dynamic_console_metric desc 0]
+    limit: 10
+    column_limit: 50
+    color_application:
+      collection_id: 5591d8d1-6b49-4f8e-bafa-b874d82f8eb7
+      palette_id: 18d0c733-1d87-42a9-934f-4ba8ef81d736
+      options:
+        steps: 5
+        reverse: false
+    rotation: false
+    map: world
+    map_projection: equirectangular
+    show_view_names: true
+    quantize_colors: false
+    show_antarctica: false
+    colors: ["#3a71fc"]
+    hidden_fields:
+    hidden_points_if_no: []
+    series_labels: {}
+    defaults_version: 1
+    hidden_pivots: {}
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    listen:
+      Site URL: Impressions.site_url
+      Data Date: Impressions.data_date
+      Dynamic Metric: Impressions.dynamic_metric
+    row: 21
+    col: 2
+    width: 20
+    height: 6
   filters:
   - name: Site URL
     title: Site URL
     type: field_filter
-    default_value: https://blog.mitienda.com
+    default_value: ''
     allow_multiple_values: true
     required: false
     ui_config:
@@ -427,7 +424,7 @@
   - name: Data Date
     title: Data Date
     type: field_filter
-    default_value: 30 day
+    default_value: 14 day
     allow_multiple_values: true
     required: false
     ui_config:
@@ -459,7 +456,7 @@
     required: false
     ui_config:
       type: dropdown_menu
-      display: popover
+      display: inline
     model: search_console_model
     explore: searchdata_site_impression
     listens_to_filters: []
