@@ -163,8 +163,8 @@ view: +searchdata_site_impression {
     html:
         <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
           <nav style="font-size: 18px;  text-align: center;">
-            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/110?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">☰ Site Data</a>
-            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/157?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">Dynamic<a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/search_console_model::site_data?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">☰ Site Data</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/search_console_model::dynamic?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">Dynamic<a>
       </nav>
       </div>
       ;;
@@ -178,8 +178,8 @@ view: +searchdata_site_impression {
     html:
         <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
           <nav style="font-size: 18px;  text-align: center;">
-            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/110?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">☰ Site Data</a>
-            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/157?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">Dynamic<a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/search_console_model::site_data?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">☰ Site Data</a>
+            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/search_console_model::dynamic?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">Dynamic<a>
       </nav>
       </div>
       ;;
