@@ -47,6 +47,28 @@ view: +searchdata_site_impression {
     }
   }
 
+  parameter: dynamic_dimension {
+    hidden: no
+    type: unquoted
+    default_value: "queries"
+    allowed_value: {
+      value: "queries"
+      label: "Queries"
+    }
+    allowed_value: {
+      value: "countries"
+      label: "Countries"
+    }
+    allowed_value: {
+      value: "devices"
+      label: "Devices"
+    }
+    allowed_value: {
+      value: "date"
+      label: "Dates"
+    }
+  }
+
   measure: dynamic_console_metric{
     # label_from_parameter: dynamic_metric
     type: number
@@ -63,6 +85,25 @@ view: +searchdata_site_impression {
         {% elsif dynamic_metric._parameter_value == "ctr" %} ${ctr}
         {% elsif dynamic_metric._parameter_value == "avg_site_position" %} ${avg_site_position}
       {% else %} ${total_clicks}
+      {% endif %};;
+    hidden: no
+  }
+
+  dimension: dynamic_dimension_description {
+    type: string
+    label: "{% if dynamic_dimension._parameter_value == 'queries' %} Queries
+    {% elsif dynamic_dimension._parameter_value == 'countries' %} Countries
+    {% elsif dynamic_dimension._parameter_value == 'devices' %} Devices
+    {% elsif dynamic_dimension._parameter_value == 'date' %} Dates
+    {% else %} Clicks
+    {% endif %}"
+
+    sql:
+      {% if dynamic_dimension._parameter_value == "queries" %} ${query}
+        {% elsif dynamic_dimension._parameter_value == "countries" %} ${country_upper}
+        {% elsif dynamic_dimension._parameter_value == "devices" %} ${device}
+        {% elsif dynamic_dimension._parameter_value == "date" %} ${data_date}
+      {% else %} ${query}
       {% endif %};;
     hidden: no
   }
