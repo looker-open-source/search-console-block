@@ -4,24 +4,26 @@ view: navigation_bar {
   fields_hidden_by_default: yes
   derived_table: {
     sql: SELECT
-              {{ _filters['origin_filter'] | sql_quote }} as origin,
-              {{ _filters['device_filter'] | sql_quote }} as device;;
+              {{ _filters['date_filter_date'] | sql_quote }} as date,
+              {{ _filters['search_type'] | sql_quote }} as search_type;;
 
   }
 
-  dimension: device_filter {
+  dimension_group: date_filter {
+    type: time
     hidden: no
-    sql: ${TABLE}.device ;;
+    sql: ${TABLE}.date ;;
+    timeframes: [date]
   }
 
-  dimension: origin_filter {
+  dimension: search_type {
+    type: string
     hidden: no
-    sql: ${TABLE}.origin ;;
+    sql: ${TABLE}.search_type ;;
   }
 
   dimension: horizontal_navigation_bar_dynamic {
     hidden: no
-    group_label: "Horizontal Navigation"
     type: string
     sql: "" ;;
     html:
@@ -32,24 +34,24 @@ view: navigation_bar {
                   {%- assign style_active_yellow = "display: inline-block; background-color: #fff4e5; color: #b96a00; padding: 8px 16px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 16px; pointer-events: none; cursor: default;" -%}
 
 
-      {% if _explore._dashboard_url contains '::summary' %}
-      <span style="{{ style_active_green }}">☰ Summary </span>
+      {% if _explore._dashboard_url contains '::overview' %}
+      <span style="{{ style_active_green }}">☰ Overview </span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::summary?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">☰ Summary</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::overview?Date={{ _filters['date_filter_date'] | url_encode }}&SearchType={{ _filters['search_type'] | url_encode }}">☰ Overview</a>
       {% endif %}
 
 
-      {% if _explore._dashboard_url contains '::metrics' %}
-      <span style="{{ style_active_green }}">Metrics</span>
+      {% if _explore._dashboard_url contains '::insights' %}
+      <span style="{{ style_active_green }}">Insights</span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::metrics?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">Metrics</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::insights?Date={{ _filters['date_filter_date'] | url_encode }}&SearchType={{ _filters['search_type'] | url_encode }}">Insights</a>
       {% endif %}
 
 
-      {% if _explore._dashboard_url contains '::distributions' %}
-      <span style="{{ style_active_yellow }}">Distributions</span>
+      {% if _explore._dashboard_url contains '::performance' %}
+      <span style="{{ style_active_yellow }}">Performance</span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/chrome-ux-block::distributions?Origin={{ _filters['origin_filter'] | url_encode }}&Device={{ _filters['device_filter'] | url_encode }}">Distributions</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::performance?Date={{ _filters['date_filter_date'] | url_encode }}&SearchType={{ _filters['search_type'] | url_encode }}">Performance</a>
       {% endif %}
 
       </div> ;;

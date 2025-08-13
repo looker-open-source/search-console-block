@@ -3,7 +3,7 @@ connection: "@{SC_CONNECTION}"
 
 include: "/explores/**.explore"
 include: "/views/refined/**.view.lkml"
-# include: "/dashboards/*.dashboard"
+include: "/dashboards/*.dashboard"
 
 datagroup: search_console_model_default_datagroup {
   max_cache_age: "1 hour"
@@ -20,4 +20,9 @@ explore: searchdata_site_impression {
 
 explore: searchdata_url_impression {
   label: "URL Impression"
+}
+
+explore: navigation_bar {
+  hidden: yes
+  persist_for: "0 seconds"
 }
