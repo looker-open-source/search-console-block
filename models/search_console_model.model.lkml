@@ -3,7 +3,7 @@ connection: "@{SC_CONNECTION}"
 
 include: "/explores/**.explore"
 include: "/views/refined/**.view.lkml"
-include: "/dashboards/*.dashboard"
+# include: "/dashboards/*.dashboard"
 
 datagroup: search_console_model_default_datagroup {
   max_cache_age: "1 hour"

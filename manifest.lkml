@@ -20,3 +20,4 @@ constant: SC_SCHEMA {
   value: "searchconsole"
   export: override_optional
 }
+new_lookml_runtime: yes
