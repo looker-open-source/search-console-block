@@ -133,6 +133,12 @@ view: +searchdata_site_impression {
     #E52592
   }
 
+  measure: percent_total_clicks {
+    type: percent_of_total
+    hidden: no
+    sql: ${total_clicks} ;;
+  }
+
   measure: total_impressions {
     label: "Impressions"
     type: sum
