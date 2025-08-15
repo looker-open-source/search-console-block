@@ -4,19 +4,22 @@ view: navigation_bar {
   fields_hidden_by_default: yes
   derived_table: {
     sql: SELECT
-              {{ _filters['date_filter_date'] | sql_quote }} as date,
-              {{ _filters['search_type'] | sql_quote }} as search_type;;
+              --TIMESTAMP((CURRENT_DATE() - LENGTH("{{ _filters['date_filter']}}"))) as date,
+              {{ _filters['search_type_filter'] | sql_quote }} as search_type,
+
+                date
+        FROM
+          UNNEST(GENERATE_TIMESTAMP_ARRAY('2011-01-11 00:00:00', CURRENT_TIMESTAMP(), INTERVAL 1 DAY)) AS date;;
 
   }
 
-  dimension_group: date_filter {
-    type: time
+  dimension: date_filter {
+    type: date
     hidden: no
     sql: ${TABLE}.date ;;
-    timeframes: [date]
   }
 
-  dimension: search_type {
+  dimension: search_type_filter {
     type: string
     hidden: no
     sql: ${TABLE}.search_type ;;
@@ -34,24 +37,17 @@ view: navigation_bar {
                   {%- assign style_active_yellow = "display: inline-block; background-color: #fff4e5; color: #b96a00; padding: 8px 16px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 16px; pointer-events: none; cursor: default;" -%}
 
 
-      {% if _explore._dashboard_url contains '::overview' %}
-      <span style="{{ style_active_green }}">☰ Overview </span>
-      {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::overview?Date={{ _filters['date_filter_date'] | url_encode }}&SearchType={{ _filters['search_type'] | url_encode }}">☰ Overview</a>
-      {% endif %}
-
-
       {% if _explore._dashboard_url contains '::insights' %}
-      <span style="{{ style_active_green }}">Insights</span>
+      <span style="{{ style_active_green }}">☰ Insights </span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::insights?Date={{ _filters['date_filter_date'] | url_encode }}&SearchType={{ _filters['search_type'] | url_encode }}">Insights</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::insights?Date={{ _filters['date_filter'] | url_encode }}&SearchType={{ _filters['search_type_filter'] | url_encode }}">☰ Insights</a>
       {% endif %}
 
 
       {% if _explore._dashboard_url contains '::performance' %}
-      <span style="{{ style_active_yellow }}">Performance</span>
+      <span style="{{ style_active_green }}">Performance</span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::performance?Date={{ _filters['date_filter_date'] | url_encode }}&SearchType={{ _filters['search_type'] | url_encode }}">Performance</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::performance?Date={{ _filters['date_filter'] | url_encode }}&SearchType={{ _filters['search_type_filter'] | url_encode }}">Performance</a>
       {% endif %}
 
       </div> ;;

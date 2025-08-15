@@ -98,7 +98,7 @@
     show_comparison_searchdata_site_impression.total_clicks: false
     title_hidden: true
     listen:
-      Date Filter: searchdata_site_impression.date_filter
+      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
     row: 0
     col: 3
@@ -196,7 +196,7 @@
     show_comparison_searchdata_site_impression.total_clicks: false
     title_hidden: true
     listen:
-      Date Filter: searchdata_site_impression.data_date
+      Date: searchdata_site_impression.data_date
       Search Type: searchdata_site_impression.search_type
     row: 3
     col: 3
@@ -297,7 +297,7 @@
     show_comparison_searchdata_site_impression.total_clicks: false
     title_hidden: true
     listen:
-      Date Filter: searchdata_site_impression.data_date
+      Date: searchdata_site_impression.data_date
       Search Type: searchdata_site_impression.search_type
     row: 3
     col: 12
@@ -339,7 +339,7 @@
     defaults_version: 1
     hidden_fields: [searchdata_url_impression.selected_period_clicks]
     listen:
-      Date Filter: searchdata_url_impression.date_filter
+      Date: searchdata_url_impression.date_filter
       Search Type: searchdata_url_impression.search_type
     row: 5
     col: 2
@@ -385,7 +385,7 @@
     defaults_version: 1
     hidden_fields: [searchdata_url_impression.clicks_change_c]
     listen:
-      Date Filter: searchdata_url_impression.date_filter
+      Date: searchdata_url_impression.date_filter
       Search Type: searchdata_url_impression.search_type
     row: 13
     col: 2
@@ -441,7 +441,7 @@
     defaults_version: 1
     hidden_fields: [searchdata_url_impression.clicks_change_c]
     listen:
-      Date Filter: searchdata_url_impression.date_filter
+      Date: searchdata_url_impression.date_filter
       Search Type: searchdata_url_impression.search_type
     row: 13
     col: 12
@@ -548,7 +548,7 @@
     show_comparison_searchdata_site_impression.selected_period_impressions: false
     hidden_pivots: {}
     listen:
-      Date Filter: searchdata_site_impression.date_filter
+      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
     row: 22
     col: 2
@@ -666,7 +666,7 @@
     show_comparison_searchdata_site_impression.selected_period_impressions: false
     hidden_pivots: {}
     listen:
-      Date Filter: searchdata_site_impression.date_filter
+      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
     row: 29
     col: 2
@@ -775,7 +775,7 @@
     show_comparison_searchdata_site_impression.selected_period_impressions: false
     hidden_pivots: {}
     listen:
-      Date Filter: searchdata_site_impression.date_filter
+      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
     row: 29
     col: 12
@@ -822,7 +822,7 @@
       num_rows: '5'
     defaults_version: 1
     listen:
-      Date Filter: searchdata_site_impression.date_filter
+      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
     row: 36
     col: 2
@@ -892,7 +892,7 @@
       num_rows: '5'
     defaults_version: 0
     listen:
-      Date Filter: searchdata_site_impression.date_filter
+      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
     row: 42
     col: 2
@@ -939,7 +939,7 @@
     hidden_points_if_no: []
     defaults_version: 1
     listen:
-      Date Filter: searchdata_site_impression.date_filter
+      Date: searchdata_site_impression.date_filter
     row: 36
     col: 12
     width: 10
@@ -987,14 +987,14 @@
     hide_totals: false
     hide_row_totals: false
     listen:
-      Date Filter: searchdata_site_impression.date_filter
+      Date: searchdata_site_impression.date_filter
     row: 42
     col: 16
     width: 6
     height: 7
   filters:
-  - name: Date Filter
-    title: Date Filter
+  - name: Date
+    title: Date
     type: field_filter
     default_value: 7 day
     allow_multiple_values: true
@@ -1006,7 +1006,7 @@
     model: search_console_model
     explore: searchdata_site_impression
     listens_to_filters: []
-    field: searchdata_site_impression.date_filter
+    field: searchdata_site_impression.data_date
   - name: Search Type
     title: Search Type
     type: field_filter

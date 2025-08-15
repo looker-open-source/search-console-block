@@ -128,7 +128,7 @@ view: +searchdata_site_impression {
 
   dimension_group: data {
     hidden: no
-    timeframes: [date, month, year, week]
+    timeframes: [date, month, year, week,raw]
   }
 
   dimension: device {
@@ -219,7 +219,15 @@ view: +searchdata_site_impression {
     hidden: no
     description: "Use this date filter in combination with the timeframes dimension for dynamic date filtering"
     type: date
+    default_value: "7 days"
   }
+
+  filter: search_type_filter {
+    hidden: no
+    type: string
+    default_value: "WEB"
+  }
+
 
   dimension_group: filter_start_date {
     hidden: yes
@@ -397,35 +405,5 @@ view: +searchdata_site_impression {
   dimension: ytd_only {hidden:yes}
   dimension: mtd_only {hidden:yes}
   dimension: wtd_only {hidden:yes}
-
-  dimension: nav_bar_site_data {
-    hidden:no
-    type: string
-    sql: " " ;;
-    group_label: "Navigation Bar Fields"
-    html:
-        <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
-          <nav style="font-size: 18px;  text-align: center;">
-            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/search_console_model::site_data?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">☰ Site Data</a>
-            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/search_console_model::dynamic?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">Dynamic<a>
-      </nav>
-      </div>
-      ;;
-  }
-
-  dimension: nav_bar_dynamic {
-    hidden:no
-    type: string
-    sql: " " ;;
-    group_label: "Navigation Bar Fields"
-    html:
-        <div style="border-radius: 5px; padding: 5px 10px; background: #08B248; height: 60px; color: red; text-align: center;">
-          <nav style="font-size: 18px;  text-align: center;">
-            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px;" href="/dashboards/search_console_model::site_data?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">☰ Site Data</a>
-            <a style="color: #efefef; padding: 5px 15px; float: left; line-height: 40px; font-weight: bold;" href="/dashboards/search_console_model::dynamic?Data+Date={{ _filters["data_date"] | url_encode }}&Country={{ _filters["country_upper"] | url_encode }}&Device={{ _filters["device"] | url_encode }}&Search+Type={{ _filters["search_type"] | url_encode }}">Dynamic<a>
-      </nav>
-      </div>
-      ;;
-  }
 
 }

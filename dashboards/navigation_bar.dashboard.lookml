@@ -37,8 +37,38 @@
     header_font_size: 12
     rows_font_size: 12
     defaults_version: 1
-    listen: {}
+    listen:
+      Date: navigation_bar.date_filter
+      Search Type: navigation_bar.search_type_filter
     row: 0
     col: 2
     width: 20
     height: 2
+  filters:
+  - name: Date
+    title: Date
+    type: field_filter
+    default_value: 7 day
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: advanced
+      display: popover
+      options: []
+    model: search_console_model
+    explore: searchdata_site_impression
+    listens_to_filters: []
+    field: searchdata_site_impression.date_filter
+  - name: Search Type
+    title: Search Type
+    type: field_filter
+    default_value: WEB
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: dropdown_menu
+      display: inline
+    model: search_console_model
+    explore: searchdata_site_impression
+    listens_to_filters: []
+    field: searchdata_site_impression.search_type_filter
