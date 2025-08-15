@@ -5,7 +5,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: sfhKjN7Pf3qYOAJmQUqkyI
+  preferred_slug: 5igSsyGFxbGMkfAGjjHZWU
   elements:
   - title: Over Time
     name: Over Time
@@ -16,7 +16,6 @@
       searchdata_site_impression.total_impressions, searchdata_site_impression.ctr,
       searchdata_site_impression.avg_site_position]
     fill_fields: [searchdata_site_impression.data_date]
-    filters: {}
     sorts: [searchdata_site_impression.data_date desc]
     limit: 500
     column_limit: 50
@@ -109,7 +108,7 @@
       Search Type: searchdata_site_impression.search_type
       Dynamic Dimension: searchdata_site_impression.dynamic_dimension
       Date: searchdata_site_impression.data_date
-    row: 3
+    row: 5
     col: 2
     width: 20
     height: 7
@@ -120,7 +119,6 @@
     type: marketplace_viz_multiple_value::multiple_value-marketplace
     fields: [searchdata_site_impression.dynamic_console_metric, searchdata_site_impression.total_impressions,
       searchdata_site_impression.ctr, searchdata_site_impression.avg_site_position]
-    filters: {}
     limit: 500
     column_limit: 50
     hidden_fields: []
@@ -219,7 +217,7 @@
       Search Type: searchdata_site_impression.search_type
       Dynamic Dimension: searchdata_site_impression.dynamic_dimension
       Date: searchdata_site_impression.data_date
-    row: 0
+    row: 2
     col: 2
     width: 20
     height: 3
@@ -355,10 +353,79 @@
       Search Type: searchdata_site_impression.search_type
       Dynamic Dimension: searchdata_site_impression.dynamic_dimension
       Date: searchdata_site_impression.data_date
-    row: 10
+    row: 12
     col: 2
     width: 20
     height: 8
+  - title: New Tile
+    name: New Tile
+    model: search_console_model
+    explore: searchdata_site_impression
+    type: single_value
+    fields: [searchdata_site_impression.dynamic_dimension_title]
+    filters: {}
+    sorts: [searchdata_site_impression.dynamic_dimension_title]
+    limit: 500
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: false
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#079c98"
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: 'Explore Further: Modify Dashboard Filter to Display Diverse Segments
+      📊 ⬆️'
+    listen:
+      Date: searchdata_site_impression.data_date
+      Search Type: searchdata_site_impression.search_type
+      Dynamic Dimension: searchdata_site_impression.dynamic_dimension
+    row: 12
+    col: 0
+    width: 2
+    height: 8
+  - name: ''
+    type: text
+    title_text: ''
+    subtitle_text: ''
+    body_text: ''
+    row: 0
+    col: 0
+    width: 2
+    height: 12
   filters:
   - name: Date
     title: Date
@@ -369,6 +436,7 @@
     ui_config:
       type: advanced
       display: popover
+      options: []
     model: search_console_model
     explore: searchdata_site_impression
     listens_to_filters: []

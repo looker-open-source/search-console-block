@@ -5,7 +5,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: VNAsA1bjsYWyCe6t7iEU8f
+  preferred_slug: 3HXp0M0anbiJx8BHwtCPmQ
   elements:
   - title: Scorecards
     name: Scorecards
@@ -14,7 +14,6 @@
     type: marketplace_viz_multiple_value::multiple_value-marketplace
     fields: [searchdata_site_impression.selected_period_clicks, searchdata_site_impression.previous_period_clicks,
       searchdata_site_impression.selected_period_impressions, searchdata_site_impression.previous_period_impressions]
-    filters: {}
     limit: 500
     column_limit: 50
     hidden_fields: []
@@ -310,7 +309,6 @@
     type: looker_grid
     fields: [searchdata_url_impression.url, searchdata_url_impression.clicks_string,
       searchdata_url_impression.selected_period_clicks]
-    filters: {}
     sorts: [searchdata_url_impression.selected_period_clicks desc]
     limit: 7
     column_limit: 50
@@ -352,7 +350,6 @@
     type: looker_grid
     fields: [searchdata_url_impression.url, searchdata_url_impression.clicks_change_c,
       searchdata_url_impression.clicks_string_change]
-    filters: {}
     sorts: [searchdata_url_impression.clicks_change_c desc]
     limit: 7
     column_limit: 50
@@ -394,7 +391,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"Your content"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
     row: 4
@@ -408,7 +404,6 @@
     type: looker_grid
     fields: [searchdata_url_impression.url, searchdata_url_impression.clicks_change_c,
       searchdata_url_impression.clicks_string_change]
-    filters: {}
     sorts: [searchdata_url_impression.clicks_change_c]
     limit: 7
     column_limit: 50
@@ -557,7 +552,6 @@
   - name: " (Copy)"
     type: text
     title_text: " (Copy)"
-    subtitle_text: ''
     body_text: '[{"type":"h2","children":[{"text":"Queries leading to your site","fontSize":"22px","backgroundColor":"rgb(255,
       255, 255)","color":"rgb(31, 31, 31)"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
@@ -834,7 +828,6 @@
     explore: searchdata_site_impression
     type: looker_google_map
     fields: [searchdata_site_impression.percent_total_clicks, searchdata_site_impression.country_upper]
-    filters: {}
     sorts: [searchdata_site_impression.percent_total_clicks desc]
     limit: 500
     column_limit: 50

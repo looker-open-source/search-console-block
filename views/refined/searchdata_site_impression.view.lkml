@@ -69,6 +69,19 @@ view: +searchdata_site_impression {
     }
   }
 
+  dimension: dynamic_dimension_title {
+    label: "Selected Dimension"
+    type: string
+    sql:
+      {% if dynamic_dimension._parameter_value == 'queries' %} 'Queries'
+      {% elsif dynamic_dimension._parameter_value == 'countries' %} 'Countries'
+      {% elsif dynamic_dimension._parameter_value == 'devices' %} 'Devices'
+      {% elsif dynamic_dimension._parameter_value == 'date' %} 'Dates'
+      {% else %} 'Select a Metric'
+      {% endif %} ;;
+    html: <div style="font-size: 15px; font-weight: bold;">{{ value }}</div> ;;
+  }
+
   measure: dynamic_console_metric{
     # label_from_parameter: dynamic_metric
     type: number
