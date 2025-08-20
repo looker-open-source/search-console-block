@@ -1,0 +1,27 @@
+{
+  "label": "Search Console Block",
+  "category_label": "Models",
+  "branding": {
+    "image_uri": "https://marketplace-api.looker.com/block-icons/search-console-block.png",
+    "tagline": "Transform your Search Console data into a powerful, interactive analytics experience."
+  },
+  "constants": {
+    "SC_CONNECTION": {
+      "label": "Connection Name",
+      "value_constraint": "connection"
+    },
+    "PROJECT_ID": {
+      "label": "BigQuery Project ID",
+    },
+    "SC_SCHEMA": {
+        "label": "Search Console Schema",
+        "description": "Schema name where the data transfer for Search Console is Located"
+    }
+  },
+  "models": [
+    {
+      "name": "search_console_model",
+      "connection_constant": "SC_CONNECTION"
+    }
+  ]
+}
