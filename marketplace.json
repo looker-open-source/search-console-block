@@ -2,7 +2,7 @@
   "label": "Search Console Block",
   "category_label": "Models",
   "branding": {
-    "image_uri": "https://marketplace-api.looker.com/block-icons/search-console-block.png",
+    "image_uri": "https://marketplace-api.looker.com/block-icons/search-console-block-icon.png",
     "tagline": "Transform your Search Console data into a powerful, interactive analytics experience."
   },
   "constants": {
