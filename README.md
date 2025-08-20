@@ -1,51 +1,59 @@
-<h1><span style="color:#2d7eea">README - Your LookML Project</span></h1>
+# Search Console Looker Block
 
-<h2><span style="color:#2d7eea">LookML Overview</span></h2>
+**This is not an officially supported Google product.**
 
-LookML is a data modeling language for describing dimensions, fields, aggregates and relationships based on SQL.
+## What does this Looker Block do for me?
 
-LookML is powerful because it:
+This block is your solution for powerful, in-depth analysis of your organic search data. It's built to help you easily analyze and visualize the information from your Search Console BigQuery Export, turning raw data into actionable insights.
 
-- **Is all about reusability**: Most data analysis requires the same work to be done over and over again. You extract
-raw data, prepare it, deliver an analysis... and then are never able touse any of that work again. This is hugely
-inefficient, since the next analysis often involves many of the same steps. With LookML, once you define a
-dimension or a measure, you continue to build on it, rather than having to rewrite it again and again.
-- **Empowers end users**:  The data model that data analysts and developers create in LookML condenses and
-encapsulates the complexity of SQL, it and lets analysts get the knowledge about what their data means out of
-their heads so others can use it. This enables non-technical users to do their jobs &mdash; building dashboards,
-drilling to row-level detail, and accessing complex metrics &mdash; without having to worry about what’s behind the curtain.
-- **Allows for data governance**: By defining business metrics in LookML, you can ensure that Looker is always a
-credible single source of truth.
+With this block, you can:
 
-The Looker application uses a model written in LookML to construct SQL queries against a particular database that
-business analysts can [Explore](https://cloud.google.com/looker/docs/r/exploring-data) on. For an overview on the basics of LookML, see [What is LookML?](https://cloud.google.com/looker/docs/r/what-is-lookml)
+* Quickly identify performance trends with an **Insights Dashboard** that lets you compare any time period to an equivalent previous one.
 
-<h2><span style="color:#2d7eea">Learn to Speak Looker</span></h2>
+* Track key metrics over time with a **Performance Dashboard** that visualizes Clicks, Impressions, CTR, and Average Site Position.
 
-A LookML project is a collection of LookML files that describes a set of related [views](https://cloud.google.com/looker/docs/r/terms/view-file), [models](https://cloud.google.com/looker/docs/r/terms/model-file), and [Explores](https://cloud.google.com/looker/docs/r/terms/explore).
-- A [view](https://cloud.google.com/looker/docs/r/terms/view-file) (.view files) contains information about how to access or calculate information from each table (or
-across multiple joined tables). Here you’ll typically define the view, its dimensions and measures, and its field sets.
-- A [model](https://cloud.google.com/looker/docs/r/terms/model-file) (.model file) contains information about which tables to use and how they should be joined together.
-Here you’ll typically define the model, its Explores, and its joins.
-- An [Explore](https://cloud.google.com/looker/docs/r/terms/explore) is the starting point for business users to query data, and it is the end result of the LookML you are
-writing. To see the Explores in this project, select an Explore from the Explore menu.
+* Understand user behavior by dynamically segmenting your data by queries, country, and device.
 
-<h2><span style="color:#2d7eea">Exploring Data</span></h2>
+The Search Console export provides access to your data in a powerful, flexible format. This Looker Block is built to help you access and leverage this information quickly.
 
-Ad-hoc data discovery is one of Looker’s most powerful and unique features. As you evaluate use cases for your
-trial, consider what business areas you would like to explore. Open the Explore menu in the main navigation to see
-the Explores you are building.
+Official documentation on how to export Search Console data in BigQuery can be found on the [Search Console Help site](https://support.google.com/webmasters/answer/12917675).
 
-<h2><span style="color:#2d7eea">The Development Workflow</span></h2>
+### Data Structure & Metrics
 
-To support a multi-developer environment, Looker is integrated with Git for version control. Follow [these directions](https://cloud.google.com/looker/docs/r/develop/git-setup)
-to set up Git for your project. To edit LookML, expand the Develop drop-down and toggle on [Development Mode](https://cloud.google.com/looker/docs/r/terms/dev-mode). In
-Development Mode, changes you make to the LookML model exist only in your account until you commit the
-changes and push them to your production model.
+The Looker Block uses data exported from Search Console, which is aggregated by Date, Site, URL, Country, Query, and Device Type. This structure allows for a deep dive into user behavior.
 
-<h2><span style="color:#2d7eea">Additional Resources</span></h2>
+Each row represents a daily summary of your site's performance for a specific Country, Device, and Query.
 
-To learn more about LookML and how to develop visit:
-- [Looker User Guide](https://looker.com/guide)
-- [Looker Help Center](https://help.looker.com)
-- [Looker University](https://training.looker.com/)
+The key metrics you will find are:
+
+* **Clicks:** The number of clicks from a Google search result to your site.
+
+* **Impressions:** The number of times a URL from your site was shown to a user in a Google search result.
+
+* **CTR (Click-Through Rate):** The percentage of impressions that resulted in a click.
+
+* **Avg. Site Position:** The average position of your site's URL in the search results.
+
+### Datasets Used
+
+This Looker block utilizes the Dataset Exported by [Bulk Data Export of Search Console to BigQuery](https://support.google.com/webmasters/answer/12918484?hl=en&ref_topic=12917674&sjid=4892135313850277981-NC):
+
+Table `searchdata_site_impression`: This table in BigQuery contains the aggregated data by [property](https://support.google.com/webmasters/answer/7576553#urlorsite), and Table `searchdata_site_impression` contains the aggregated data by [URL](https://support.google.com/webmasters/answer/7576553#urlorsite) you can find more related information about these tables [in tihs article](https://support.google.com/webmasters/answer/12917991?hl=en&ref_topic=12917674&sjid=4892135313850277981-NC#:~:text=all%20your%20data.-,Table%20schema,-Here%20are%20the)
+
+## Key LookML Features
+
+The LookML for this project is designed to be simple, making it easy to explore and understand the exported data.
+
+* Previous Period Comparison (period_over_period): We leverage this functionality by using method 7 described [in this article](https://discuss.google.dev/t/methods-for-period-over-period-pop-analysis-in-looker/119253). This enables the straightforward and efficient calculation of previous period values (e.g., previous 7 days) for any selected metric, facilitating trend analysis and comparisons directly within your Explores and Dashboards.
+
+### Looker Model and Views
+
+The file structure of this block has been thoughtfully designed to ensure it is both easy to navigate and simple to extend.
+
+* `searchdata_site_impression.view`: This is the foundational view for the block. It serves as the single source of truth for all core dimensions and metrics, including the sophisticated `period_over_period` logic that drives comparative analysis.
+
+### Dashboards
+
+* **Insights Dashboard:** Get a high-level overview of your site's performance, including a summary of top URLs, queries, and countries driving traffic.
+
+* **Performance Dashboard:** Dive deep into time-series data for your key metrics. Use dynamic dimensions to segment and analyze performance by various user characteristics.
