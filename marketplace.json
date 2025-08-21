@@ -12,6 +12,7 @@
     },
     "PROJECT_ID": {
       "label": "BigQuery Project ID",
+      "description": "Project where Search Console data is exported"
     },
     "SC_SCHEMA": {
         "label": "Search Console Schema",
