@@ -30,11 +30,11 @@ view: navigation_bar {
     type: string
     sql: "" ;;
     html:
-    <div style="background: #ffffff; font-family: Arial, sans-serif; border-bottom: 1px solid #e0e0e0; padding: 10px; display: flex; align-items: center; justify-content: flex-start; gap: 10px;">
+    <div style="background: #ffffff; font-family: Arial, sans-serif; border-bottom: 1px solid #e0e0e0; padding: 12px; display: flex; align-items: center; justify-content: flex-start; gap: 10px;">
 
-                  {%- assign style_inactive = "display: inline-block; color: #555; padding: 8px 16px; text-decoration: none; font-size: 16px; border-radius: 20px;" -%}
-                  {%- assign style_active_green = "display: inline-block; background-color: #e8f5e9; color: #0d652d; padding: 8px 16px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 16px; pointer-events: none; cursor: default;" -%}
-                  {%- assign style_active_yellow = "display: inline-block; background-color: #fff4e5; color: #b96a00; padding: 8px 16px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 16px; pointer-events: none; cursor: default;" -%}
+                  {%- assign style_inactive = "display: inline-block; color: #555; padding: 8px 16px; text-decoration: none; font-size: 18px; border-radius: 20px;" -%}
+                  {%- assign style_active_green = "display: inline-block; background-color: #e8f5e9; color: #0d652d; padding: 8px 18px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 18px; pointer-events: none; cursor: default;" -%}
+                  {%- assign style_active_yellow = "display: inline-block; background-color: #fff4e5; color: #b96a00; padding: 8px 18px; font-weight: bold; border-radius: 20px; text-decoration: none; font-size: 18px; pointer-events: none; cursor: default;" -%}
 
 
       {% if _explore._dashboard_url contains '::insights' %}

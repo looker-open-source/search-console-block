@@ -4,7 +4,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: QVfNVeqehXuD0JyCnvvhnY
+  preferred_slug: kRWZkgrWG83sgWpDT3FPnf
   elements:
   - title: NavBar
     name: NavBar
@@ -41,8 +41,8 @@
       Date: navigation_bar.date_filter
       Search Type: navigation_bar.search_type_filter
     row: 0
-    col: 2
-    width: 20
+    col: 0
+    width: 24
     height: 2
   filters:
   - name: Date
