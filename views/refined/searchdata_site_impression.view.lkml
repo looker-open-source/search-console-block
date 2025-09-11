@@ -348,6 +348,55 @@ view: +searchdata_site_impression {
     value_format_name: decimal_0
   }
 
+  measure: selected_period_ctr{
+    view_label: "_PoP"
+    label: "Average CTR"
+    hidden: no
+    type: number
+    sql: SAFE_DIVIDE(${selected_period_clicks},${selected_period_impressions}) ;;
+    value_format_name: percent_1
+  }
+  measure: previous_period_ctr {
+    label: "CTR previous period"
+    view_label: "_PoP"
+    hidden: no
+    type: number
+    sql: SAFE_DIVIDE(${previous_period_clicks},${previous_period_impressions}) ;;
+    value_format_name: percent_1
+  }
+  ### AVG POSITION
+  measure: selected_period_sum_top_position{
+    view_label: "_PoP"
+    label: "Current Sum Top Position"
+    type: sum
+    sql: ${sum_top_position} ;;
+    filters: [is_current_period: "yes"]
+  }
+  measure: previous_period_sum_top_position {
+    label: "Previous Sum Top Positioon"
+    view_label: "_PoP"
+    type: sum
+    sql: ${sum_top_position} ;;
+    filters: [is_previous_period: "yes"]
+  }
+
+  measure: selected_period_position{
+    view_label: "_PoP"
+    label: "AVG Position"
+    hidden: no
+    type: number
+    sql: SAFE_DIVIDE(${selected_period_sum_top_position}, ${selected_period_impressions}) + 1 ;;
+    value_format_name: decimal_1
+  }
+  measure: previous_period_position {
+    label: "AVG Position previous period"
+    view_label: "_PoP"
+    hidden: no
+    type: number
+    sql: SAFE_DIVIDE(${previous_period_sum_top_position}, ${previous_period_impressions}) + 1 ;;
+    value_format_name: decimal_1
+  }
+
    measure: clicks_change{
     label: "% Clicks Change"
     view_label: "_PoP"
