@@ -109,9 +109,9 @@
       the change in total impressions compared to the previous period. The small graph
       illustrates the trend of impressions within the selected period.
     listen:
-      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
-    row: 6
+      Date: searchdata_site_impression.date_filter
+    row: 8
     col: 0
     width: 7
     height: 4
@@ -123,6 +123,8 @@
     fields: [searchdata_site_impression.total_clicks, searchdata_site_impression.total_impressions,
       searchdata_site_impression.data_date]
     fill_fields: [searchdata_site_impression.data_date]
+    filters:
+      searchdata_site_impression.timeframes: Selected Period
     sorts: [searchdata_site_impression.data_date desc]
     limit: 500
     column_limit: 50
@@ -149,7 +151,7 @@
     x_axis_scale: auto
     y_axis_combined: true
     show_null_points: false
-    interpolation: linear
+    interpolation: monotone
     color_application:
       collection_id: 7c56cc21-66e4-41c9-81ce-a60e1c3967b2
       palette_id: 5d189dfc-4f46-46f3-822b-bfb0b61777b1
@@ -207,20 +209,22 @@
     show_comparison_searchdata_site_impression.total_clicks: false
     title_hidden: true
     listen:
-      Date: searchdata_site_impression.data_date
       Search Type: searchdata_site_impression.search_type
-    row: 2
+      Date: searchdata_site_impression.date_filter
+    row: 4
     col: 7
     width: 17
     height: 4
-  - title: Line Clicks (Copy)
-    name: Line Clicks (Copy)
+  - title: Line Impressions
+    name: Line Impressions
     model: search_console_model
     explore: searchdata_site_impression
     type: looker_line
     fields: [searchdata_site_impression.total_clicks, searchdata_site_impression.total_impressions,
       searchdata_site_impression.data_date]
     fill_fields: [searchdata_site_impression.data_date]
+    filters:
+      searchdata_site_impression.timeframes: Selected Period
     sorts: [searchdata_site_impression.data_date desc]
     limit: 500
     column_limit: 50
@@ -314,9 +318,9 @@
       illustrates the trend of impressions within the selected period.
     title_hidden: true
     listen:
-      Date: searchdata_site_impression.data_date
       Search Type: searchdata_site_impression.search_type
-    row: 6
+      Date: searchdata_site_impression.date_filter
+    row: 8
     col: 7
     width: 17
     height: 4
@@ -350,6 +354,8 @@
     show_row_totals: true
     truncate_header: true
     minimum_column_width: 75
+    series_labels:
+      searchdata_url_impression.clicks_string: Clicks
     series_cell_visualizations: {}
     hidden_pivots: {}
     defaults_version: 1
@@ -361,9 +367,9 @@
 
       Top: Content that received the most clicks.
     listen:
-      Date: searchdata_url_impression.date_filter
       Search Type: searchdata_url_impression.search_type
-    row: 13
+      Date: searchdata_url_impression.date_filter
+    row: 15
     col: 0
     width: 24
     height: 8
@@ -412,9 +418,9 @@
 
       '
     listen:
-      Date: searchdata_url_impression.date_filter
       Search Type: searchdata_url_impression.search_type
-    row: 21
+      Date: searchdata_url_impression.date_filter
+    row: 23
     col: 0
     width: 12
     height: 8
@@ -423,7 +429,7 @@
     title_text: ''
     body_text: '[{"type":"h1","children":[{"text":"Your content"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 11
+    row: 13
     col: 0
     width: 24
     height: 2
@@ -470,9 +476,9 @@
     note_text: 'Trending down: Queries that lost the most clicks compared to the previous
       period.'
     listen:
-      Date: searchdata_url_impression.date_filter
       Search Type: searchdata_url_impression.search_type
-    row: 21
+      Date: searchdata_url_impression.date_filter
+    row: 23
     col: 12
     width: 12
     height: 8
@@ -584,9 +590,9 @@
 
       Top: Queries that received the most clicks.
     listen:
-      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
-    row: 32
+      Date: searchdata_site_impression.date_filter
+    row: 34
     col: 0
     width: 24
     height: 12
@@ -596,7 +602,7 @@
     body_text: '[{"type":"h2","children":[{"text":"Queries leading to your site","fontSize":"22px","backgroundColor":"rgb(255,
       255, 255)","color":"rgb(31, 31, 31)"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 30
+    row: 32
     col: 0
     width: 24
     height: 2
@@ -705,9 +711,9 @@
     note_text: 'Trending down: Queries that lost the most clicks compared to the previous
       period.'
     listen:
-      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
-    row: 44
+      Date: searchdata_site_impression.date_filter
+    row: 46
     col: 12
     width: 12
     height: 8
@@ -820,9 +826,9 @@
 
       '
     listen:
-      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
-    row: 44
+      Date: searchdata_site_impression.date_filter
+    row: 46
     col: 0
     width: 12
     height: 8
@@ -893,9 +899,9 @@
     note_text: Location of users who clicked your site in Search results during the
       selected period.
     listen:
-      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
-    row: 52
+      Date: searchdata_site_impression.date_filter
+    row: 54
     col: 0
     width: 16
     height: 9
@@ -948,7 +954,7 @@
       News.
     listen:
       Date: searchdata_site_impression.date_filter
-    row: 52
+    row: 54
     col: 16
     width: 8
     height: 9
@@ -1054,9 +1060,9 @@
       to the previous period. The small graph illustrates the trend of clicks within
       the selected period.
     listen:
-      Date: searchdata_site_impression.date_filter
       Search Type: searchdata_site_impression.search_type
-    row: 2
+      Date: searchdata_site_impression.date_filter
+    row: 4
     col: 0
     width: 7
     height: 4
@@ -1066,7 +1072,7 @@
     subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":" "}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 10
+    row: 12
     col: 0
     width: 24
     height: 1
@@ -1076,7 +1082,69 @@
     subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":" "}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 29
+    row: 31
     col: 0
     width: 24
     height: 1
+  - title: New Tile
+    name: New Tile
+    model: search_console_model
+    explore: export_log
+    type: single_value
+    fields: [export_log.data_info]
+    sorts: [export_log.data_info]
+    limit: 1
+    column_limit: 50
+    custom_color_enabled: true
+    show_single_value_title: false
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#079c98"
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    listen: {}
+    row: 2
+    col: 17
+    width: 7
+    height: 2
+  - name: " (Copy 3)"
+    type: text
+    title_text: " (Copy 3)"
+    subtitle_text: ''
+    body_text: '[{"type":"h1","children":[{"text":" "}],"align":"center"}]'
+    rich_content_json: '{"format":"slate"}'
+    row: 2
+    col: 0
+    width: 17
+    height: 2
