@@ -149,6 +149,17 @@ view: +searchdata_site_impression {
     timeframes: [date, month, year, week,raw]
   }
 
+  dimension: data_date_n {
+    type: date
+    sql: TIMESTAMP(${data_date});;
+    hidden:no
+    drill_fields: []
+    link: {
+      label: "Segmentation"
+      url: "@{VIZ_CONFIG_BAR}{{ link }}&fields=searchdata_site_impression.dynamic_console_metric,searchdata_site_impression.total_impressions,searchdata_site_impression.ctr,searchdata_site_impression.avg_site_position,searchdata_site_impression.dynamic_dimension_description&f[searchdata_site_impression.dynamic_dimension_description]=-NULL&sorts=searchdata_site_impression.dynamic_console_metric+desc&limit=20&column_limit=50&&vis_config={{ vis_config | encode_uri }}"
+    }
+  }
+
   dimension: device {
     group_label: "Search Description"
     hidden: no

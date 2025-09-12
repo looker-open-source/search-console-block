@@ -14,8 +14,8 @@
     type: looker_line
     fields: [searchdata_site_impression.dynamic_console_metric, searchdata_site_impression.data_date,
       searchdata_site_impression.total_impressions, searchdata_site_impression.ctr,
-      searchdata_site_impression.avg_site_position]
-    fill_fields: [searchdata_site_impression.data_date]
+      searchdata_site_impression.avg_site_position, searchdata_site_impression.data_date_n]
+    # fill_fields: [searchdata_site_impression.data_date, searchdata_site_impression.data_date_n]
     filters:
       searchdata_site_impression.timeframes: Selected Period
     sorts: [searchdata_site_impression.data_date desc]
@@ -100,7 +100,7 @@
     rows_font_size: '12'
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
-    hidden_fields: []
+    hidden_fields: [searchdata_site_impression.data_date]
     hidden_points_if_no: []
     defaults_version: 1
     hide_totals: false
@@ -109,6 +109,7 @@
     listen:
       Search Type: searchdata_site_impression.search_type
       Date: searchdata_site_impression.date_filter
+      Dynamic Dimension: searchdata_site_impression.dynamic_dimension
     row: 7
     col: 0
     width: 24
