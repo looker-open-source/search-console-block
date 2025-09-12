@@ -103,6 +103,11 @@ view: +searchdata_site_impression {
   }
 
   dimension: dynamic_dimension_description {
+    drill_fields: []
+    link: {
+      label: "Over time"
+      url: "@{VIZ_CONFIG}{{ link }}&fields=searchdata_site_impression.data_date,searchdata_site_impression.dynamic_console_metric,searchdata_site_impression.total_impressions,searchdata_site_impression.ctr,searchdata_site_impression.avg_site_position&fill_fields=searchdata_site_impression.data_date&f[searchdata_site_impression.data_date]=3+months&sorts=searchdata_site_impression.dynamic_console_metric+desc&limit=20&column_limit=50&vis_config={{ vis_config | encode_uri }}"
+    }
     type: string
     label: "{% if dynamic_dimension._parameter_value == 'queries' %} Queries
     {% elsif dynamic_dimension._parameter_value == 'countries' %} Countries
