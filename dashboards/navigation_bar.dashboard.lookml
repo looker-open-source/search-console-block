@@ -62,12 +62,12 @@
   - name: Search Type
     title: Search Type
     type: field_filter
-    default_value: WEB
+    default_value: "%WEB%"
     allow_multiple_values: true
     required: false
     ui_config:
-      type: dropdown_menu
-      display: inline
+      type: advanced
+      display: popover
     model: search_console_model
     explore: searchdata_site_impression
     listens_to_filters: []

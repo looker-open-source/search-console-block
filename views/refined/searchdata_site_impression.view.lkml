@@ -254,7 +254,8 @@ view: +searchdata_site_impression {
   filter: search_type_filter {
     hidden: no
     type: string
-    default_value: "WEB"
+    default_value: "%WEB%"
+    suggestions: ["WEB","IMAGE"]
   }
 
 

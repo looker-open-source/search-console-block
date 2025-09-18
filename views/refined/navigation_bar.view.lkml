@@ -40,14 +40,14 @@ view: navigation_bar {
       {% if _explore._dashboard_url contains '::insights' %}
       <span style="{{ style_active_green }}">☰ Insights </span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::insights?Date={{ _filters['date_filter'] | url_encode }}&SearchType={{ _filters['search_type_filter'] | url_encode }}">☰ Insights</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::insights?Date={{ _filters['date_filter'] | url_encode }}&Search+Type={{ _filters['search_type_filter'] | url_encode }}">☰ Insights</a>
       {% endif %}
 
 
       {% if _explore._dashboard_url contains '::performance' %}
       <span style="{{ style_active_green }}">Performance</span>
       {% else %}
-      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::performance?Date={{ _filters['date_filter'] | url_encode }}&SearchType={{ _filters['search_type_filter'] | url_encode }}">Performance</a>
+      <a style="{{ style_inactive }}" href="/embed/dashboards/search_console_model::performance?Date={{ _filters['date_filter'] | url_encode }}&Search+Type={{ _filters['search_type_filter'] | url_encode }}">Performance</a>
       {% endif %}
 
       </div> ;;
